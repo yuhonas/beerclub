@@ -2,6 +2,11 @@
 
 The only app you'll ever need to vote on beer
 
+
+![dc6a6677-0ea6-4b1f-976b-702c7a3e7a89](https://user-images.githubusercontent.com/4928/32577707-f2471420-c52e-11e7-83a0-837a48159a4b.jpeg)
+
+
+
 ## Setup
 
 How to run tests:
