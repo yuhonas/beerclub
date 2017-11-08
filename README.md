@@ -1,6 +1,6 @@
 # Beerclub
 
-Welcome to your new Hanami project!
+The only app you'll ever need to vote on beer
 
 ## Setup
 
