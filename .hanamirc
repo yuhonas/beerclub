@@ -1,0 +1,3 @@
+project=beerclub
+test=minitest
+template=slim
