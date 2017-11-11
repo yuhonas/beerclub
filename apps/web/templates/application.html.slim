@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    title Beer Club
+    = favicon
+    = stylesheet 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', \
+      'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css'
+    = stylesheet 'application.css' 
+    = javascript 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'
+  body
+    section.hero.is-light
+      .hero-head
+        nav.navbar
+          .container
+            .navbar-brand
+              span.navbar-burger.burger data-target="navbarMenu" 
+                span
+                span
+                span
+            #navbarMenu.navbar-menu
+              .navbar-end
+                a.navbar-item.is-active href="#{routes.root_path}"
+                  | Home
+                span.navbar-item
+                  a.button.is-outlined.is-small href="https://github.com/yuhonas/beerclub" 
+                    span.icon
+                      i.fa.fa-github
+                    span View Source
+    = yield
+    footer.footer
+      .container
+        .content.has-text-centered
+          p
+            | Built by a community of beer lovers, Beerclub is appropriately licensed under
+            a href="https://spdx.org/licenses/Beerware.html"  Beerware
+          p
+            a.icon href="github.com/yuhonas/beerclub" 
+              i.fa.fa-github

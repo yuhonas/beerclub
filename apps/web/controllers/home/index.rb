@@ -1,4 +1,4 @@
-module Web::Controllers::Competitions
+module Web::Controllers::Home
   class Index
     include Web::Action
 

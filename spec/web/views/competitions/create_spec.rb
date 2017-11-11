@@ -1,9 +1,9 @@
 require_relative '../../../spec_helper'
 
-describe Web::Views::Competitions::Index do
+describe Web::Views::Competitions::Create do
   let(:exposures) { Hash[foo: 'bar'] }
-  let(:template)  { Hanami::View::Template.new('apps/web/templates/competitions/index.html.erb') }
-  let(:view)      { Web::Views::Competitions::Index.new(template, exposures) }
+  let(:template)  { Hanami::View::Template.new('apps/web/templates/competitions/create.html.slim') }
+  let(:view)      { Web::Views::Competitions::Create.new(template, exposures) }
   let(:rendered)  { view.render }
 
   it 'exposes #foo' do

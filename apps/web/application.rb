@@ -81,7 +81,28 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-      # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+
+
+      middleware.use Warden::Manager do |manager|
+        manager.failure_app = Web::Controllers::Session::Failure.new
+      end
+
+      middleware.use OmniAuth::Builder do
+        provider :github, ENV["GITHUB_CLIENT_KEY"], ENV["GITHUB_CLIENT_SECRET"]
+      end
+
+      OmniAuth.config.test_mode = true
+
+      # Generated using https://randomuser.me/
+      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+        uid: '44345',
+        info: {
+          name: 'Lester Obrien',
+          nickname: 'jdoe',
+          image: 'https://randomuser.me/api/portraits/men/44.jpg'
+        }
+      })
 
       # Configure Rack middleware for this application
       #
@@ -238,11 +259,11 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self';
+        script-src 'self' cdnjs.cloudflare.com;
         connect-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;
-        font-src 'self';
+        font-src 'self' maxcdn.bootstrapcdn.com;
         object-src 'none';
         plugin-types application/pdf;
         child-src 'self';
@@ -259,8 +280,7 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/hanami-controller#Configuration
       controller.prepare do
-        # include MyAuthentication # included in all the actions
-        # before :authenticate!    # run an authentication before callback
+        include Web::Authentication
       end
 
       # Configure the code that will yield each time Web::View is included

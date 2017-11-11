@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'hanami',       '~> 1.1'
 gem 'hanami-model', '~> 1.1'
+gem 'omniauth-github'
+gem 'warden'
 
 gem 'pg'
 gem 'slim'

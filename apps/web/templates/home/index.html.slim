@@ -1,0 +1,52 @@
+<!-- from https://dansup.github.io/bulma-templates/templates/hero.html -->
+section.hero.is-info.is-medium.is-bold
+  .hero-body
+    .container.has-text-centered
+      .coluum
+      h1.title
+        | Beer Club
+      = image "beer-mug.png", width: "128px"
+      h2.subtitle
+        | The only competition you'll ever want to compete it
+.box.cta
+  p.has-text-centered
+    span.tag.is-primary New
+    | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+section.container
+  .columns.features
+    .column.is-4
+      .card
+        .card-image.has-text-centered
+          i.fa.fa-beer
+        .card-content
+          .content
+            h4 Run Competitions & Find the best beer
+            p Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim nec. Integer enim neque volutpat ac tincidunt vitae semper quis. Accumsan tortor posuere ac ut consequat semper viverra nam.
+            p
+              a href="#{routes.new_competition_path}"  Learn more
+    .column.is-4
+      .card
+        .card-image.has-text-centered
+          i.fa.fa-rocket
+        .card-content
+          .content
+            h4 Discover the world of beer
+            p Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing elit pellentesque. Sed arcu non odio euismod lacinia at quis risus. Faucibus turpis in eu mi bibendum neque egestas cmonsu songue. Phasellus vestibulum lorem sed risus.
+            p
+              a href="#"  Learn more
+    .column.is-4
+      .card
+        .card-image.has-text-centered
+          i.fa.fa-pencil-square
+        .card-content
+          .content
+            h4 Record & Rank your favourites
+            p Imperdiet dui accumsan sit amet nulla facilisi morbi. Fusce ut placerat orci nulla pellentesque dignissim enim. Libero id faucibus nisl tincidunt eget nullam. Commodo viverra maecenas accumsan lacus vel facilisis.
+            p
+              a href="#"  Learn more
+ 
+
+- if current_user 
+  p Hello, #{current_user.name} | #{link_to "Sign out", "/auth/signout"}
+- else 
+  = link_to "Login with Github", "/auth/github" 

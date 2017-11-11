@@ -1,7 +1,7 @@
 require_relative '../../../spec_helper'
 
-describe Web::Controllers::Competitions::Index do
-  let(:action) { Web::Controllers::Competitions::Index.new }
+describe Web::Controllers::Home::Index do
+  let(:action) { Web::Controllers::Home::Index.new }
   let(:params) { Hash[] }
 
   it 'is successful' do
